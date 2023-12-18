@@ -102,10 +102,11 @@ public class GamePanel extends JPanel implements ActionListener { //Membuat clas
 		page.drawImage(newXIcon.getImage(), 44 + offset * 1 + 190, 47 + offset * 0, null);// Menggambar simbol X
 
 		// DRAW score O
-		page.setColor(offwhite);// Mengatur warna untuk simbol O
-		page.fillOval(43 + 190 + offset, 80, 30, 30);// Menggambar lingkaran putih
-		page.setColor(darkgray);// Mengatur warna untuk lingkaran di atas lingkaran putih
-		page.fillOval(49 + 190 + offset, 85, 19, 19);// Menggambar lingkaran di atas lingkaran putih
+		ImageIcon oIcon = new ImageIcon("Orange_circle"); // Replace with the path to your custom image for 'O'
+		Image oImg = oIcon.getImage();
+		Image newOImg = oImg.getScaledInstance(27, 27, java.awt.Image.SCALE_SMOOTH);
+		ImageIcon newOIcon = new ImageIcon(newOImg);
+		page.drawImage(newOIcon.getImage(), 320 + i * 30, 80, null);
 
 		// DRAW WHOS TURN or WINNER
 		page.setColor(offwhite); // Mengatur warna untuk teks dan simbol pemenang/giliran
@@ -158,10 +159,8 @@ public class GamePanel extends JPanel implements ActionListener { //Membuat clas
 					page.drawImage(xImg, 30 + offset * i, 30 + offset * j, null);
 				} else if (board[i][j] == 2) {   // Jika nilai sel adalah 2 (mewakili pemain O)
                 // Menggambar lingkaran putih dan kepala kura-kura pada posisi tertentu
-					page.setColor(offwhite);
-					page.fillOval(30 + offset * i, 30 + offset * j, 50, 50);
-					page.setColor(turtle);
-					page.fillOval(40 + offset * i, 40 + offset * j, 30, 30);
+					ImageIcon xIcon = new ImageIcon("Orange_cirlce.png");
+					Image xImg = xIcon.getImage();
 				}
 			}
 		}
